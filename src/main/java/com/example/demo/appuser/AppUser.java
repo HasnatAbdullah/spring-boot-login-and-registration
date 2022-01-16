@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Getter
@@ -37,7 +38,7 @@ public class AppUser implements UserDetails {
     private String username;
     private String email;
     private String password;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(STRING)
     private AppUserRole appUserRole;
     private Boolean locked;
     private Boolean enabled;
