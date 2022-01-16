@@ -15,9 +15,10 @@ public class AppUserService implements UserDetailsService {
 
     private final AppUserRepository appUserRepository;
 
-    public AppUserService(AppUserRepository appUserRepository) {
-        this.appUserRepository = appUserRepository;
-    }
+    //Managed by Lombok
+//    public AppUserService(AppUserRepository appUserRepository) {
+//        this.appUserRepository = appUserRepository;
+//    }
 
     @Override
     public UserDetails loadUserByUsername(String email)
