@@ -1,15 +1,10 @@
 package com.example.demo.registration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-//@AllArgsConstructor
-//@NoArgsConstructor
 @Getter
 @ToString
 @EqualsAndHashCode
