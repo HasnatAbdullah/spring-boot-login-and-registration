@@ -1,20 +1,18 @@
 package com.example.demo.registration.token;
 
-
 import com.example.demo.appuser.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class ConfirmationToken {
     @Id
     @SequenceGenerator(
@@ -50,12 +48,10 @@ public class ConfirmationToken {
     public ConfirmationToken(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiredAt,
-                             LocalDateTime confirmedAt,
                              AppUser appUser) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiredAt;
-        this.confirmedAt = confirmedAt;
         this.appUser = appUser;
     }
 }

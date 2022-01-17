@@ -32,4 +32,7 @@ public class RegistrationService {
                 )
         );
     }
+
+    public String confirmToken(String token) {
+    }
 }
