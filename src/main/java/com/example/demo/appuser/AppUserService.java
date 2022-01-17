@@ -35,14 +35,19 @@ public class AppUserService implements UserDetailsService {
             throws UsernameNotFoundException {
         return appUserRepository.findByEmail(email)
                 .orElseThrow(()->
-                        new UsernameNotFoundException(String.format(USER_NOT_FOUND, email)));
+                        new UsernameNotFoundException(
+                                String.format(USER_NOT_FOUND, email)));
     }
 
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
                 .findByEmail(appUser.getEmail())
                 .isPresent();
+
         if (userExists){
+            // TODO : Check if attributes are the same and
+            // TODO: If email is not confirmed. send confirmation email.
+
             throw new IllegalStateException("email already taken");
         }
 
@@ -53,7 +58,7 @@ public class AppUserService implements UserDetailsService {
 
         appUserRepository.save(appUser);
 
-        String token =UUID.randomUUID().toString();
+        String token = UUID.randomUUID().toString();
 
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
@@ -67,5 +72,8 @@ public class AppUserService implements UserDetailsService {
 
 //        TODO: Send Email!!
         return token;
+    }
+    public int enableAppUser(String email){
+        return appUserRepository.enableAppUser(email);
     }
 }
